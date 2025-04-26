@@ -262,6 +262,7 @@ section {
   background: var(--clr-primary-10);
   padding: 0.25rem 0.5rem;
   border-radius: var(--radius);
+  user-select: none;
 }
 .single-course footer {
   padding: 1.5rem 2rem;
@@ -316,6 +317,7 @@ section {
   font-size: 1rem;
   border-radius: var(--radius);
   cursor: pointer;
+  user-select: none;
   transition: var(--transition);
 }
 .prev:hover,
