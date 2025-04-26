@@ -1,13 +1,38 @@
 import React, { useState } from "react";
 import courses from "./data";
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const Course = () => {
-  const [index, setIndex] = useState(3);
+  const [index, setIndex] = useState(0);
   const { info, name, image, price } = courses[index];
   const [readMore, setReadMore] = useState(false);
 
-  
+  const checkNumber = (number) => {
+    if (number > courses.length - 1) {
+      return 0;
+    }
+    if (number < 0) {
+      return courses.length - 1;
+    }
+    return number;
+  };
+
+  const prevPerson = () => {
+    setIndex((currentIndex) => checkNumber(currentIndex - 1));
+  };
+
+  const nextPerson = () => {
+    setIndex((currentIndex) => checkNumber(currentIndex + 1));
+  };
+
+  const randomPerson = () => {
+    let randomNumber = Math.floor(Math.random() * courses.length);
+    if (randomNumber === index) {
+      randomNumber = index + 1;
+    }
+    setIndex(checkNumber(randomNumber));
+  };
+
   return (
     <article className="single-course">
       <div className="img">
@@ -35,17 +60,16 @@ const Course = () => {
           </button>
         </p>
         <div className="button-container">
-            <button className="prev">
-                <FaChevronLeft />
-            </button>
-            <button className="random-btn">
+          <button className="prev" onClick={prevPerson}>
+            <FaChevronLeft />
+          </button>
+          <button className="random-btn" onClick={randomPerson}>
             surprise me
-        </button>
-            <button className="next">
-                <FaChevronRight />
-            </button>
+          </button>
+          <button className="next" onClick={nextPerson}>
+            <FaChevronRight />
+          </button>
         </div>
-       
       </footer>
     </article>
   );

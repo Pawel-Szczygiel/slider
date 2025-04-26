@@ -321,7 +321,7 @@ section {
 .prev:hover,
 .next:hover, 
 .random-btn:hover {
-  background: var(--clr-primary-5);
+  background: var(--clr-green-light);
   color: var(--clr-white);
 }
 
