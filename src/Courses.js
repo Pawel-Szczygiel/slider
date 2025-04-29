@@ -4,10 +4,16 @@ import Course from './Course';
 const LIGHT_THEME = 'light-theme';
 const DARK_THEME = 'dark-theme';
 
+const getStorageTheme = () => {
+  let theme = LIGHT_THEME;
+  localStorage.getItem('theme') && ( theme = localStorage.getItem('theme')) ;
+  
+  return theme;
+}
 
 
 const Courses = () => {
-  const [theme, setTheme] = useState(LIGHT_THEME);
+  const [theme, setTheme] = useState(getStorageTheme);
 
   const switchMode = () => {
     theme === LIGHT_THEME ? setTheme(DARK_THEME) : setTheme(LIGHT_THEME); 
@@ -15,7 +21,7 @@ const Courses = () => {
 
   useEffect(() => {
     document.documentElement.className = theme;
-
+    localStorage.setItem('theme', theme);
   }, [theme]);
 
   return (
