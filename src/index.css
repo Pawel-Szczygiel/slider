@@ -44,7 +44,23 @@ Variables
   --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   --max-width: 1170px;
   --fixed-width: 620px;
+  
+  /* toggle mode collors */
+  --clr-bcg: #fff;
+  --clr-font: #282c35;
+  --clr-primary: #d23669;
 }
+.dark-theme {
+  --clr-bcg: #282c35;
+  --clr-font: #fff;
+  --clr-primary: #ffa7c4;
+}
+.light-theme {
+  --clr-bcg: #fff;
+  --clr-font: #282c35;
+  --clr-primary: #d23669;
+}
+
 /*
 =============== 
 Global Styles
@@ -61,8 +77,8 @@ Global Styles
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  background: var(--clr-grey-10);
-  color: var(--clr-grey-1);
+  background: var(--clr-bcg);
+  color: var(--clr-font);
   line-height: 1.5;
   font-size: 0.875rem;
 }
@@ -95,7 +111,7 @@ h4 {
 }
 p {
   margin-bottom: 1.25rem;
-  color: var(--clr-grey-5);
+  color: var(--clr-font);
 }
 @media screen and (min-width: 800px) {
   h1 {
@@ -196,6 +212,27 @@ main {
 section {
   position: relative;
 }
+
+section .change-mode {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: .2rem .7rem;
+  border-radius: 5px;
+  color: var(--clr-bcg);
+  background-color: var(--clr-primary);
+  border-color: transparent;
+  text-transform: lowercase;
+  transition: all .3s linear;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+section .change-mode:hover {
+  box-shadow: var(--dark-shadow);
+}
+
 .loading {
   text-align: center;
 }
@@ -206,7 +243,7 @@ section {
 .underline {
   width: 6rem;
   height: 0.25rem;
-  background: var(--clr-green-light);
+  background: var(--clr-primary);
   margin: 0 auto;
 }
 
@@ -244,9 +281,12 @@ section {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1.5rem;
+  color: var(--clr-primary);
 }
-.tour-info h4 {
+.course-info h4 {
   margin-bottom: 0;
+  letter-spacing: 1px;
+  font-size: 1.2rem;
 }
 .single-course button {
   background: transparent;
@@ -258,8 +298,8 @@ section {
   padding-left: 0.25rem;
 }
 .course-price {
-  color: var(--clr-primary-5);
-  background: var(--clr-primary-10);
+  color: var(--clr-primary);
+  background: var(--clr-bcg);
   padding: 0.25rem 0.5rem;
   border-radius: var(--radius);
   user-select: none;

@@ -7,7 +7,7 @@ const Course = () => {
   const { info, name, image, price } = courses[index];
   const [readMore, setReadMore] = useState(false);
 
-  const checkNumber = (number) => {
+  const checkNumber = number => {
     if (number > courses.length - 1) {
       return 0;
     }
@@ -18,11 +18,11 @@ const Course = () => {
   };
 
   const prevPerson = () => {
-    setIndex((currentIndex) => checkNumber(currentIndex - 1));
+    setIndex(currentIndex => checkNumber(currentIndex - 1));
   };
 
   const nextPerson = () => {
-    setIndex((currentIndex) => checkNumber(currentIndex + 1));
+    setIndex(currentIndex => checkNumber(currentIndex + 1));
   };
 
   const randomPerson = () => {
